@@ -5,7 +5,6 @@
 
     <main aria-labelledby="title">
         <h2 id="title"><%: Title %></h2>
-        <h3>This is project page.</h3>
     </main>
 
     <div class="form-container">

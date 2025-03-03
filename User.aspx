@@ -5,7 +5,6 @@
 
     <main aria-labelledby="title">
         <h2 id="title"><%: Title %></h2>
-        <h3>This is user page.</h3>
     </main>
 <div class="form-container">
         <h3>User Details:</h3>

@@ -11,15 +11,9 @@
         <h3>Task Details:</h3>
         <form class="styled-form">
             <div class="form-group">
-                <label for="taskID">Task ID:</label>
-                <input type="text" id="taskID" name="taskID" class="form-control">
-            </div>
-
-            <div class="form-group">
                 <label for="name">Name:</label>
                 <input type="text" id="name" name="name" class="form-control">
             </div>
-
             <div class="form-group">
                 <label for="startDate">Start Date:</label>
                 <input type="date" id="startDate" name="startDate" class="form-control">
@@ -29,17 +23,12 @@
                 <label for="dueDate">Due Date:</label>
                 <input type="date" id="dueDate" name="dueDate" class="form-control">
             </div>
-
-            <div class="form-group">
-                <label for="status">Status:</label>
-                <input type="text" id="status" name="status" class="form-control">
-            </div>
-
-            <div class="form-group">
-                <label for="parentID">Parent ID:</label>
-                <input type="text" id="parentID" name="parentID" class="form-control">
-            </div>
-
+             <div class="form-group">
+             <label for="status">Status:</label>
+             <select name="status" id="status"  class="form-control">
+              <option value="Ongoing">Ongoing</option>
+              <option value="Completed">Completed</option>
+            </select> </div>
             <button type="submit" class="button">Submit</button>
         </form>
     </div>

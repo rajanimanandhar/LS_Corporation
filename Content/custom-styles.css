@@ -21,22 +21,7 @@
     border-radius: 4px;
 }
 
-/* Purplish Submit Button */
-.btn-purple {
-    width: 100%;
-    background-color: #6a0dad; /* Dark Purple */
-    border: none;
-    padding: 10px;
-    border-radius: 4px;
-    cursor: pointer;
-    color: white;
-}
-
-    .btn-purple:hover {
-        background-color: #5a0cae; /* Slightly lighter purple on hover */
-    }
-
-    /* Purplish Submit Button */
+    /*  Submit Button */
 .button {
     background-color: #7a4eb3;
     color: white;
@@ -51,3 +36,33 @@
     .button:hover {
         background-color: #6939a7;
     }
+
+/* Table Container */
+.table-container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+/* Table Styling */
+table {
+    width: 100%;
+    border-collapse: collapse; /* Ensures borders are aligned */
+    margin-top: 10px;
+    border: 1px solid black; /* Outer border */
+}
+
+/* Table Header & Cells */
+th, td {
+    border: 1px solid black; /* Visible black grid lines */
+    padding: 8px;
+    text-align: left;
+}
+
+/* Bold header without extra styling */
+th {
+    font-weight: bold;
+    background-color: white; /* No extra color */
+    color: black;
+}
+

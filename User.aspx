@@ -10,11 +10,6 @@
         <h3>User Details:</h3>
         <form class="styled-form">
             <div class="form-group">
-                <label for="userID">User ID:</label>
-                <input type="text" id="userID" name="userID" class="form-control">
-            </div>
-
-            <div class="form-group">
                 <label for="name">Name:</label>
                 <input type="text" id="name" name="name" class="form-control">
             </div>

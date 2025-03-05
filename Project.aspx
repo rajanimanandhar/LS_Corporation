@@ -10,11 +10,7 @@
     <div class="form-container">
         <h3>Project Details:</h3>
         <form class="styled-form">
-            <div class="form-group">
-                <label for="projectID">Project ID:</label>
-                <input type="text" id="projectID" name="projectID" class="form-control">
-            </div>
-
+            
             <div class="form-group">
                 <label for="name">Name:</label>
                 <input type="text" id="name" name="name" class="form-control">
@@ -29,11 +25,12 @@
                 <label for="dueDate">Due Date:</label>
                 <input type="date" id="dueDate" name="dueDate" class="form-control">
             </div>
-
-            <div class="form-group">
-                <label for="status">Status:</label>
-                <input type="text" id="status" name="status" class="form-control">
-            </div>
+             <div class="form-group">
+ <label for="status">Status:</label>
+ <select name="status" id="status"  class="form-control">
+  <option value="Ongoing">Ongoing</option>
+  <option value="Completed">Completed</option>
+</select> </div>
 
             <button type="submit" class="button">Submit</button>
         </form>

@@ -24,7 +24,7 @@
              <tr>
                  <th>UserID</th>
                  <th>User Name</th>
-                 <th>Task</th>
+                 <th>No. of Task</th>
 
              </tr>
          </thead>

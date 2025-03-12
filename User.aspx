@@ -27,4 +27,15 @@
             <button type="submit" class="button">Submit</button>
         </form>
     </div>
+    <asp:GridView ID="GridView1" runat="server" DataSourceID="LS_Corporation" AutoGenerateColumns="False" DataKeyNames="USERID">
+        <Columns>
+            <asp:BoundField DataField="USERID" HeaderText="USERID" ReadOnly="True" SortExpression="USERID"></asp:BoundField>
+            <asp:BoundField DataField="NAME" HeaderText="NAME" SortExpression="NAME"></asp:BoundField>
+            <asp:BoundField DataField="EMAIL" HeaderText="EMAIL" SortExpression="EMAIL"></asp:BoundField>
+            <asp:BoundField DataField="CONTACT" HeaderText="CONTACT" SortExpression="CONTACT"></asp:BoundField>
+        </Columns>
+    </asp:GridView>
+    <asp:SqlDataSource runat="server" ID="LS_Corporation" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>" SelectCommand="select * from users"></asp:SqlDataSource>
+
+
 </asp:Content>

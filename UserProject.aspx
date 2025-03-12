@@ -24,9 +24,13 @@
         <table>
             <thead>
                 <tr>
-                    <th>ID</th>
+                     <th>User Name</th>
+                     <th>Email</th>
+                    <th>Project ID</th>
                     <th>Project Name</th>
-                    <th>Description</th>
+                    <th>Due Date</th>
+                    <th>Status</th>
+
 
                 </tr>
             </thead>

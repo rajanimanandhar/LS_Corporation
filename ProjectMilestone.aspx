@@ -23,8 +23,10 @@
          <thead>
              <tr>
                  <th>ID</th>
+                 <th>Project Name</th>
                  <th>Milestone Name</th>
                  <th>Due Date</th>
+                 <th>Status</th>
 
              </tr>
          </thead>

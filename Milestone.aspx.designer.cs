@@ -11,7 +11,7 @@ namespace CourseworkDataWeb
 {
 
 
-    public partial class Milestone
+    public partial class Contact
     {
 
         /// <summary>

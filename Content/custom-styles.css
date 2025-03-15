@@ -46,7 +46,6 @@
 
 /* Table Styling */
 table {
-    width: 100%;
     border-collapse: collapse; /* Ensures borders are aligned */
     margin-top: 10px;
     border: 1px solid black; /* Outer border */

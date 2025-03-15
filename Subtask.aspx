@@ -39,8 +39,10 @@
 </select> </div>
          <button type="submit" onclick="SubTaskDetails()" class="button">Submit</button>
      </form>
- </div> <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1">
+ </div> 
+    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1">
             <Columns>
+                <asp:CommandField ShowSelectButton="True" />
                 <asp:BoundField DataField="SUBTASKID" HeaderText="SUBTASKID" SortExpression="SUBTASKID" />
                 <asp:BoundField DataField="PARENTID" HeaderText="PARENTID" SortExpression="PARENTID" />
                 <asp:BoundField DataField="NAME" HeaderText="NAME" SortExpression="NAME" />
@@ -51,4 +53,34 @@
         </asp:GridView>
     
         <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>" SelectCommand="SELECT * FROM &quot;SUBTASK&quot;"></asp:SqlDataSource>
+     <DeleteParameters>
+         <asp:Parameter Name="original_SUBTASKID" Type="String" />
+         <asp:Parameter Name="original_PARENTID" Type="String" />
+<asp:Parameter Name="original_NAME" Type="String" />
+<asp:Parameter Name="original_STARTDATE" Type="DateTime" />
+<asp:Parameter Name="original_DUEDATE" Type="DateTime" />
+<asp:Parameter Name="original_STATUS" Type="String" />
+     </DeleteParameters>
+     <InsertParameters>
+         <asp:Parameter Name="SUBTASKID" Type="String" />
+         <asp:Parameter Name="PARENTID" Type="String" />
+<asp:Parameter Name="NAME" Type="String" />
+<asp:Parameter Name="STARTDATE" Type="DateTime" />
+<asp:Parameter Name="DUEDATE" Type="DateTime" />
+<asp:Parameter Name="STATUS" Type="String" />
+     </InsertParameters>
+     <UpdateParameters>
+         <asp:Parameter Name="NAME" Type="String" />
+<asp:Parameter Name="STARTDATE" Type="DateTime" />
+<asp:Parameter Name="DUEDATE" Type="DateTime" />
+<asp:Parameter Name="STATUS" Type="String" />
+<asp:Parameter Name="PARENTID" Type="String" />
+<asp:Parameter Name="original_SUBTASKID" Type="String" />
+<asp:Parameter Name="original_NAME" Type="String" />
+<asp:Parameter Name="original_STARTDATE" Type="DateTime" />
+<asp:Parameter Name="original_DUEDATE" Type="DateTime" />
+<asp:Parameter Name="original_STATUS" Type="String" />
+<asp:Parameter Name="original_PARENTID" Type="String" />
+     </UpdateParameters>
+ </asp:SqlDataSource>
 </asp:Content>

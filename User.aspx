@@ -1,65 +1,69 @@
-﻿<%@ Page Title="User" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="User.aspx.cs" Inherits="CourseworkDataWeb.User" %>
+﻿<%@ Page Title="User" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="User.aspx.cs" Inherits="CourseworkDataWeb.About" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <link rel="stylesheet" type="text/css" href="Content/custom-styles.css">
 
     <main aria-labelledby="title">
-<h2 id="title" class="text-center">User</h2>
+        <h2 id="title"><%: Title %></h2>
     </main>
 
-    <div class="container mt-4">
-        <div class="card p-4 shadow-sm">
-            <h3 class="fw-bold">User Details:</h3>
-
-            <div class="row g-3">
-                <div class="col-md-6">
-                    <asp:Label runat="server" Text="User ID:" CssClass="form-label fw-bold"></asp:Label>
-                    <asp:TextBox runat="server" ID="txtUserID" CssClass="form-control" placeholder="Enter User ID"></asp:TextBox>
-                </div>
-
-                <div class="col-md-6">
-                    <asp:Label runat="server" Text="Name:" CssClass="form-label fw-bold"></asp:Label>
-                    <asp:TextBox runat="server" ID="txtName" CssClass="form-control" placeholder="Enter Name"></asp:TextBox>
-                </div>
-
-                <div class="col-md-6">
-                    <asp:Label runat="server" Text="Email:" CssClass="form-label fw-bold"></asp:Label>
-                    <asp:TextBox runat="server" ID="txtEmail" CssClass="form-control" placeholder="Enter Email"></asp:TextBox>
-                </div>
-
-                <div class="col-md-6">
-                    <asp:Label runat="server" Text="Contact:" CssClass="form-label fw-bold"></asp:Label>
-                    <asp:TextBox runat="server" ID="txtContact" CssClass="form-control" placeholder="Enter Contact Number"></asp:TextBox>
-                </div>
+    <div class="form-container">
+        <h3>User Details:</h3>
+        <form class="styled-form">
+            <div class="form-group">
+                <label for="userid">User ID:</label>
+                <input type="text" id="userid" name="userid" class="form-control">
             </div>
 
-            <div class="mt-3 d-flex justify-content-end gap-2">
-                <asp:Button runat="server" ID="btnSubmit" Text="Submit" CssClass="btn btn-primary" OnClick="btnSubmit_Click" />
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" class="form-control">
             </div>
-        </div>
+
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="text" id="email" name="email" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="contact">Contact:</label>
+                <input type="text" id="contact" name="contact" class="form-control">
+            </div>
+
+            <button type="submit" class="button" >Submit</button>
+        </form>
     </div>
 
-    <div class="mt-4">
-        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="USERID" DataSourceID="SqlDataSource1"
-            CssClass="table table-bordered table-striped">
-            <Columns>
-                <asp:BoundField DataField="USERID" HeaderText="User ID" ReadOnly="True" SortExpression="USERID" />
-                <asp:BoundField DataField="NAME" HeaderText="Name" SortExpression="NAME" />
-                <asp:BoundField DataField="EMAIL" HeaderText="Email" SortExpression="EMAIL" />
-                <asp:BoundField DataField="CONTACT" HeaderText="Contact" SortExpression="CONTACT" />
-            </Columns>
-        </asp:GridView>
-    </div>
-
-    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" 
-        ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>"
-        SelectCommand="SELECT * FROM USERS"
-        InsertCommand="INSERT INTO USERS (USERID, NAME, EMAIL, CONTACT) VALUES (@USERID, @NAME, @EMAIL, @CONTACT)">
+    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="USERID" DataSourceID="SqlDataSource1">
+        <Columns>
+            <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" ShowSelectButton="True" />
+            <asp:BoundField DataField="USERID" HeaderText="USERID" ReadOnly="True" SortExpression="USERID" />
+            <asp:BoundField DataField="NAME" HeaderText="NAME" SortExpression="NAME" />
+            <asp:BoundField DataField="EMAIL" HeaderText="EMAIL" SortExpression="EMAIL" />
+            <asp:BoundField DataField="CONTACT" HeaderText="CONTACT" SortExpression="CONTACT" />
+        </Columns>
+    </asp:GridView>
+    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConflictDetection="CompareAllValues" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" DeleteCommand="DELETE FROM &quot;USERS&quot; WHERE &quot;USERID&quot; = :original_USERID AND ((&quot;NAME&quot; = :original_NAME) OR (&quot;NAME&quot; IS NULL AND :original_NAME IS NULL)) AND ((&quot;EMIAL&quot; = :original_EMIAL) OR (&quot;EMIAL&quot; IS NULL AND :original_EMIAL IS NULL)) AND ((&quot;CONTACT&quot; = :original_CONTACT) OR (&quot;CONTACT&quot; IS NULL AND :original_CONTACT IS NULL))" InsertCommand="INSERT INTO &quot;USERS&quot; (&quot;USERID&quot;, &quot;NAME&quot;, &quot;EMIAL&quot;, &quot;CONTACT&quot;) VALUES (:USERID, :NAME, :EMIAL, :CONTACT)" OldValuesParameterFormatString="original_{0}" ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>" SelectCommand="SELECT * FROM &quot;USERS&quot;" UpdateCommand="UPDATE &quot;USERS&quot; SET &quot;NAME&quot; = :NAME, &quot;EMIAL&quot; = :EMIAL, &quot;CONTACT&quot; = :CONTACT WHERE &quot;USERID&quot; = :original_USERID AND ((&quot;NAME&quot; = :original_NAME) OR (&quot;NAME&quot; IS NULL AND :original_NAME IS NULL)) AND ((&quot;EMIAL&quot; = :original_EMIAL) OR (&quot;EMIAL&quot; IS NULL AND :original_EMIAL IS NULL)) AND ((&quot;CONTACT&quot; = :original_CONTACT) OR (&quot;CONTACT&quot; IS NULL AND :original_CONTACT IS NULL))">
+        <DeleteParameters>
+            <asp:Parameter Name="original_USERID" Type="String" />
+            <asp:Parameter Name="original_NAME" Type="String" />
+            <asp:Parameter Name="original_EMIAL" Type="String" />
+            <asp:Parameter Name="original_CONTACT" Type="String" />
+        </DeleteParameters>
         <InsertParameters>
-            <asp:Parameter Name="USERID" Type="Int32" />
+            <asp:Parameter Name="USERID" Type="String" />
             <asp:Parameter Name="NAME" Type="String" />
-            <asp:Parameter Name="EMAIL" Type="String" />
+            <asp:Parameter Name="EMIAL" Type="String" />
             <asp:Parameter Name="CONTACT" Type="String" />
         </InsertParameters>
+        <UpdateParameters>
+            <asp:Parameter Name="NAME" Type="String" />
+            <asp:Parameter Name="EMIAL" Type="String" />
+            <asp:Parameter Name="CONTACT" Type="String" />
+            <asp:Parameter Name="original_USERID" Type="String" />
+            <asp:Parameter Name="original_NAME" Type="String" />
+            <asp:Parameter Name="original_EMIAL" Type="String" />
+            <asp:Parameter Name="original_CONTACT" Type="String" />
+        </UpdateParameters>
     </asp:SqlDataSource>
 </asp:Content>

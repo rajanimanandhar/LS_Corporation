@@ -16,7 +16,7 @@
     </div>
 
     <!-- User Project Table -->
-    <div class="table-container" id="tableContainer">
+    <!--<div class="table-container" id="tableContainer">
         <table>
             <thead>
                 <tr>
@@ -31,10 +31,10 @@
                 </tr>
             </thead>
             <tbody id="projectTableBody">
-                <!-- Dynamic rows will be inserted here -->
+                <!-- Dynamic rows will be inserted here 
             </tbody>
         </table>
-    </div>
+    </div> -->
         <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource2">
             <Columns>
                 <asp:BoundField DataField="USERID" HeaderText="USERID" SortExpression="USERID" />

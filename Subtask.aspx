@@ -39,5 +39,16 @@
 </select> </div>
          <button type="submit" onclick="SubTaskDetails()" class="button">Submit</button>
      </form>
- </div>        
+ </div> <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1">
+            <Columns>
+                <asp:BoundField DataField="SUBTASKID" HeaderText="SUBTASKID" SortExpression="SUBTASKID" />
+                <asp:BoundField DataField="PARENTID" HeaderText="PARENTID" SortExpression="PARENTID" />
+                <asp:BoundField DataField="NAME" HeaderText="NAME" SortExpression="NAME" />
+                <asp:BoundField DataField="STARTDATE" HeaderText="STARTDATE" SortExpression="STARTDATE" />
+                <asp:BoundField DataField="DUEDATE" HeaderText="DUEDATE" SortExpression="DUEDATE" />
+                <asp:BoundField DataField="STATUS" HeaderText="STATUS" SortExpression="STATUS" />
+            </Columns>
+        </asp:GridView>
+    
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>" SelectCommand="SELECT * FROM &quot;SUBTASK&quot;"></asp:SqlDataSource>
 </asp:Content>

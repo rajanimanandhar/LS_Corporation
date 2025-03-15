@@ -35,4 +35,14 @@
             <button type="submit" class="button">Submit</button>
         </form>
     </div>
+    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="PROJECTID" DataSourceID="LS_Corporation">
+        <Columns>
+            <asp:BoundField DataField="PROJECTID" HeaderText="PROJECTID" ReadOnly="True" SortExpression="PROJECTID" />
+            <asp:BoundField DataField="NAME" HeaderText="NAME" SortExpression="NAME" />
+            <asp:BoundField DataField="STARTDATE" HeaderText="STARTDATE" SortExpression="STARTDATE" />
+            <asp:BoundField DataField="DUEDATE" HeaderText="DUEDATE" SortExpression="DUEDATE" />
+            <asp:BoundField DataField="STATUS" HeaderText="STATUS" SortExpression="STATUS" />
+        </Columns>
+    </asp:GridView>
+    <asp:SqlDataSource ID="LS_Corporation" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>" SelectCommand="SELECT * FROM &quot;PROJECTS&quot;"></asp:SqlDataSource>
 </asp:Content>

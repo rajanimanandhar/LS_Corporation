@@ -8,32 +8,38 @@
  <div class="form-container styled-form">
      <div class="form-group">
          <label for="project">Select Project:</label>
-         <select id="userProject" class="form-control" onchange="loadProjectsMilestone()">
-             <option value="">-- Select a Project --</option>
-             <option value="1">Project 1</option>
-             <option value="2">Project 2</option>
-         </select>
+         <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="LA_Corporation" DataTextField="PROJECTID" DataValueField="PROJECTID" AutoPostBack="True"></asp:DropDownList>
+
+         <asp:SqlDataSource ID="LA_Corporation" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>" SelectCommand="SELECT &quot;PROJECTID&quot; FROM &quot;PROJECTS&quot;"></asp:SqlDataSource>
+
      </div>
      <button class="button" onclick="loadProjectsMilestone()">Load Projects</button>
  </div>
 
  <!-- User Project Table -->
  <div class="table-container" id="tableContainer">
-     <table>
-         <thead>
-             <tr>
-                 <th>ID</th>
-                 <th>Project Name</th>
-                 <th>Milestone Name</th>
-                 <th>Due Date</th>
-                 <th>Status</th>
+ </div>      <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="MILESTONEID" DataSourceID="SqlDataSource1">
+                <Columns>
+                    <asp:BoundField DataField="MILESTONEID" HeaderText="MILESTONEID" ReadOnly="True" SortExpression="MILESTONEID" />
+                    <asp:BoundField DataField="MILESTONENAME" HeaderText="MILESTONENAME" SortExpression="MILESTONENAME" />
+                    <asp:BoundField DataField="DUEDATE" HeaderText="DUEDATE" SortExpression="DUEDATE" />
+                    <asp:BoundField DataField="PROJECTID" HeaderText="PROJECTID" SortExpression="PROJECTID" />
+                </Columns>
+            </asp:GridView>
+       
 
-             </tr>
-         </thead>
-         <tbody id="projectTableBody">
-             <!-- Dynamic rows will be inserted here -->
-         </tbody>
-     </table>
- </div>      
+
+            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>" SelectCommand="SELECT * FROM &quot;PROJECT_MILESTONES&quot; WHERE (&quot;PROJECTID&quot; = :PROJECTID)">
+                <SelectParameters>
+                    <asp:ControlParameter ControlID="DropDownList1" Name="PROJECTID" PropertyName="SelectedValue" Type="String" />
+                </SelectParameters>
+            </asp:SqlDataSource>
+       
+
+
+            <asp:SqlDataSource ID="LS_Corporation" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>" SelectCommand="SELECT &quot;PROJECTID&quot; FROM &quot;PROJECTS&quot;"></asp:SqlDataSource>
+
+
     </main>
+
 </asp:Content>

@@ -32,4 +32,16 @@
             <button type="submit" class="button">Submit</button>
         </form>
     </div>
+    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="TASKID" DataSourceID="LS_Corporation">
+        <Columns>
+            <asp:BoundField DataField="TASKID" HeaderText="TASKID" ReadOnly="True" SortExpression="TASKID" />
+            <asp:BoundField DataField="NAME" HeaderText="NAME" SortExpression="NAME" />
+            <asp:BoundField DataField="STARTDATE" HeaderText="STARTDATE" SortExpression="STARTDATE" />
+            <asp:BoundField DataField="DUEDATE" HeaderText="DUEDATE" SortExpression="DUEDATE" />
+            <asp:BoundField DataField="STATUS" HeaderText="STATUS" SortExpression="STATUS" />
+            <asp:BoundField DataField="PARENTTASKID" HeaderText="PARENTTASKID" SortExpression="PARENTTASKID" />
+        </Columns>
+    </asp:GridView>
+
+    <asp:SqlDataSource ID="LS_Corporation" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>" SelectCommand="SELECT * FROM &quot;TASKS&quot;"></asp:SqlDataSource>
 </asp:Content>

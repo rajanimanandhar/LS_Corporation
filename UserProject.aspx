@@ -9,12 +9,8 @@
     <div class="form-container styled-form">
         <div class="form-group">
             <label for="userSelect">Select User:</label>
-            <select id="userSelect" class="form-control" onchange="loadUserProjects()">
-                <option value="">-- Select a User --</option>
-                <option value="1">User 1</option>
-                <option value="2">User 2</option>
-                <option value="3">User 3</option>
-            </select>
+            <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="SqlDataSource1" DataTextField="USERID" DataValueField="USERID"></asp:DropDownList>
+            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>" SelectCommand="SELECT &quot;USERID&quot; FROM &quot;USERS&quot;"></asp:SqlDataSource>
         </div>
         <button class="button" onclick="loadUserProjects()">Load Projects</button>
     </div>
@@ -39,5 +35,17 @@
             </tbody>
         </table>
     </div>
+        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource2">
+            <Columns>
+                <asp:BoundField DataField="USERID" HeaderText="USERID" SortExpression="USERID" />
+                <asp:BoundField DataField="PROJECTID" HeaderText="PROJECTID" SortExpression="PROJECTID" />
+                <asp:BoundField DataField="TASKID" HeaderText="TASKID" SortExpression="TASKID" />
+            </Columns>
+</asp:GridView>
+    <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>" SelectCommand="SELECT * FROM &quot;USERS_PROJECTS_TASKS&quot; WHERE (&quot;USERID&quot; = :USERID)">
+        <SelectParameters>
+            <asp:ControlParameter ControlID="DropDownList1" Name="USERID" PropertyName="SelectedValue" Type="String" />
+        </SelectParameters>
+</asp:SqlDataSource>
     </main>
 </asp:Content>
